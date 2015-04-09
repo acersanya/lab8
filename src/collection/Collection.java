@@ -23,12 +23,13 @@ public class Collection {
     }
 
     public void addToCollection(Image img) {
-        if (!a.contains(img.getName())) {
-            this.getHashmap().put(img.getName(), img);
-            this.a.add(img.getName());
-        } else {
-            System.out.println("Sorry, but:" + img.getName() + ",name is already used, try to rename it");
-        }
+       if(a.add(img.getName())){
+           this.hashmap.put(img.getName(), img);
+       }
+       else {
+           System.out.println("Already excists");
+       }
+        
     }
 
     public void getPictures() {
@@ -65,6 +66,7 @@ public class Collection {
         collect.addToCollection(imagTHREE);
         collect.getPictures();
         collect.getByName("acer");
+        collect.addToCollection(imagONE);
 
     }
 
