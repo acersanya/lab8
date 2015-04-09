@@ -1,0 +1,71 @@
+package collection;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeSet;
+
+/**
+ * @author Александр
+ */
+public class Collection {
+
+    Iterator<Map.Entry<String, Image>> i;
+    public Map<String, Image> hashmap;
+    TreeSet a = new TreeSet();
+
+    public Map<String, Image> getHashmap() {
+        return this.hashmap;
+    }
+
+    public Collection() {
+        this.hashmap = new HashMap<>(5);
+    }
+
+    public void addToCollection(Image img) {
+        if (!a.contains(img.getName())) {
+            this.getHashmap().put(img.getName(), img);
+            this.a.add(img.getName());
+        } else {
+            System.out.println("Sorry, but:" + img.getName() + ",name is already used, try to rename it");
+        }
+    }
+
+    public void getPictures() {
+        i = this.getHashmap().entrySet().iterator();
+        while (i.hasNext()) {
+            Map.Entry pair = (Map.Entry) i.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+
+        }
+    }
+
+    public void getByName(String st) {
+        i = this.getHashmap().entrySet().iterator();
+        while (i.hasNext()) {
+            Map.Entry pair = (Map.Entry) i.next();
+            if (pair.getKey().equals(st)) {
+                System.out.println("Image found:" + st);
+                System.out.println(pair.getValue());
+                return;
+            }
+
+        }
+        System.out.println("Image:" + st + ".Not found");
+    }
+
+    public static void main(String[] args) {
+        Image imagONE = new Image("acer", 2, 4, 123);
+        Image imagTWO = new Image("acert", 2, 4, 123);
+        Image imagTHREE = new Image("acer", 2, 4, 123);
+
+        Collection collect = new Collection();
+        collect.addToCollection(imagONE);
+        collect.addToCollection(imagTWO);
+        collect.addToCollection(imagTHREE);
+        collect.getPictures();
+        collect.getByName("acer");
+
+    }
+
+}
