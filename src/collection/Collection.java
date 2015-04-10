@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.TreeSet;
 
 /**
+ * Collection which stores images from 
+ * Image class.
+ * Uses Hashmap to store images and TreeSet to
+ * add only unique pictures.
  * @author Александр
  */
 public class Collection {
@@ -22,6 +26,9 @@ public class Collection {
         this.hashmap = new HashMap<>(5);
     }
 
+    /**
+     * @param img add when the name is unique
+     */
     public void addToCollection(Image img) {
        if(a.add(img.getName())){
            this.hashmap.put(img.getName(), img);
@@ -31,7 +38,9 @@ public class Collection {
        }
         
     }
-
+/**
+ * show all pictures
+ */
     public void getPictures() {
         i = this.getHashmap().entrySet().iterator();
         while (i.hasNext()) {
@@ -40,6 +49,9 @@ public class Collection {
 
         }
     }
+    /**
+     * @param st gets picture by its name
+     */
 
     public void getByName(String st) {
         i = this.getHashmap().entrySet().iterator();

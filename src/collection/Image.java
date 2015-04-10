@@ -7,6 +7,13 @@ public class Image {
     public double width;
     public double height;
 
+    /**
+     * 
+     * @param name image name
+     * @param width image width
+     * @param height image height
+     * @param size image size
+     */
     public Image(String name, int width, int height, double size) {
         this.name = name;
         this.width = width;
